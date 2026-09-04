@@ -22,8 +22,8 @@ export default function ProfileMenu() {
       if (!menuRef.current?.contains(event.target)) setOpen(false)
     }
 
-    document.addEventListener('pointerdown', closeOnOutsideClick)
-    return () => document.removeEventListener('pointerdown', closeOnOutsideClick)
+    document.addEventListener('click', closeOnOutsideClick)
+    return () => document.removeEventListener('click', closeOnOutsideClick)
   }, [open])
 
   async function handleSignOut() {
