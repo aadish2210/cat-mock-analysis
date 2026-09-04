@@ -89,11 +89,9 @@ export function AuthProvider({ children }) {
     if (error) throw error
   }
 
-  async function signOut() {
+  function signOut() {
     setState((current) => ({ ...current, session: null, user: null }))
-    if (state.client) {
-      await state.client.auth.signOut({ scope: 'local' })
-    }
+    void state.client?.auth.signOut({ scope: 'local' })
   }
 
   return (
